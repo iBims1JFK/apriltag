@@ -6,8 +6,11 @@ You can find tag images for the pre-generated layouts [here](https://github.com/
 
 Table of Contents
 =================
+- [AprilTag 3](#apriltag-3)
+- [Table of Contents](#table-of-contents)
 - [Papers](#papers)
 - [Install](#install)
+  - [Build Python Wheels from Source](#build-python-wheels-from-source)
 - [Usage](#usage)
   - [Choosing a Tag Family](#choosing-a-tag-family)
   - [Getting Started with the Detector](#getting-started-with-the-detector)
@@ -15,12 +18,13 @@ Table of Contents
     - [C](#c)
     - [Matlab](#matlab)
     - [Julia](#julia)
-  - [Upgrading from AprilTag 2](#upgrading-from-aprilTag-2)
+  - [Upgrading from AprilTag 2](#upgrading-from-apriltag-2)
   - [OpenCV Integration](#opencv-integration)
   - [Tuning the Detector Parameters](#tuning-the-detector-parameters)
     - [Increasing speed.](#increasing-speed)
     - [Increasing detection distance.](#increasing-detection-distance)
   - [Pose Estimation.](#pose-estimation)
+    - [Coordinate System](#coordinate-system)
 - [Debugging](#debugging)
 - [Flexible Layouts](#flexible-layouts)
 - [Support](#support)
@@ -61,6 +65,30 @@ to generate and compile via the ninja build script. It will be much faster than 
 
 You can omit `--target install` if you only want to use this locally without installing.
 
+## Build Python Wheels from Source
+
+To build Python wheels from the source code, follow these steps:
+
+```bash
+# Build the Wheel
+python setup.py bdist_wheel --verbose
+
+# Install the Package
+pip install .
+
+# Optional: Using Custom Build Flags
+# Replace the placeholders with the appropriate paths
+
+python setup.py build_ext \
+  --build-type=Debug \
+  --shared-libs \
+  --python-wrapper \
+  --python-executable={path-to-python}  \
+  --python-include-dir={path-to-include-python}  \
+  --python-lib={path-to-libpython} \
+  --numpy-include-dir={path-to-numpy} \
+  bdist_wheel
+```
 
 Usage
 =====
