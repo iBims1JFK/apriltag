@@ -1,0 +1,14 @@
+[build-system]
+requires = ["scikit-build", "setuptools", "wheel", "cmake"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "apriltag"
+version = "3.4.2"
+description = "AprilTag Python bindings"
+requires-python = ">=3.7"
+license = {text = "BSD-2-Clause"}
+
+[tool.setuptools.package-data]
+# Include any non-Python files in the package
+apriltag = ["*.so", "*.dll", "*.dylib", "*.pyd"]
